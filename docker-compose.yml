@@ -3,4 +3,4 @@ services:
     build:
       context: .
     volumes:
-      - ./practice:/app
+      - ./oop:/app

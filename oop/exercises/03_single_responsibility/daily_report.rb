@@ -1,5 +1,5 @@
 class DailyReport
-  attr_accessor :date, :tasks
+  attr_reader :date, :tasks
 
   def initialize(date:, tasks:)
     @date = date

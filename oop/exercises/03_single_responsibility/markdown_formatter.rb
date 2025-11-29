@@ -1,7 +1,7 @@
 class MarkdownFormatter
   def format(report)
     <<~FORMAT
-      # Report: #{report.date} ===
+      # Report: #{report.date}
       
       #{report.tasks.map {|task| "- #{task}"}.join("\n")}
     FORMAT

@@ -7,53 +7,53 @@ RSpec.describe 'Daily Report System' do
     DailyReport.new(
       date: '2025-01-15',
       tasks: [
-        'ユーザー認証機能の実装',
-        'コードレビュー対応',
-        'チームミーティング参加'
+        'Implement user authentication',
+        'Code review',
+        'Team meeting'
       ]
     )
   end
 
   describe DailyReport do
-    it '日付を取得できる' do
+    it 'returns the date' do
       expect(report.date).to eq '2025-01-15'
     end
 
-    it '作業内容を取得できる' do
+    it 'returns the tasks' do
       expect(report.tasks).to eq [
-        'ユーザー認証機能の実装',
-        'コードレビュー対応',
-        'チームミーティング参加'
+        'Implement user authentication',
+        'Code review',
+        'Team meeting'
       ]
     end
   end
 
   describe TextFormatter do
-    it 'プレーンテキスト形式で出力できる' do
+    it 'formats as plain text' do
       formatter = TextFormatter.new
       result = formatter.format(report)
 
-      expect(result).to include('=== 日報: 2025-01-15 ===')
-      expect(result).to include('- ユーザー認証機能の実装')
-      expect(result).to include('- コードレビュー対応')
-      expect(result).to include('- チームミーティング参加')
+      expect(result).to include('=== Report: 2025-01-15 ===')
+      expect(result).to include('- Implement user authentication')
+      expect(result).to include('- Code review')
+      expect(result).to include('- Team meeting')
     end
   end
 
   describe MarkdownFormatter do
-    it 'マークダウン形式で出力できる' do
+    it 'formats as markdown' do
       formatter = MarkdownFormatter.new
       result = formatter.format(report)
 
-      expect(result).to include('# 日報: 2025-01-15')
-      expect(result).to include('- ユーザー認証機能の実装')
-      expect(result).to include('- コードレビュー対応')
-      expect(result).to include('- チームミーティング参加')
+      expect(result).to include('# Report: 2025-01-15')
+      expect(result).to include('- Implement user authentication')
+      expect(result).to include('- Code review')
+      expect(result).to include('- Team meeting')
     end
   end
 
-  describe '責務の分離' do
-    it 'DailyReportはフォーマットメソッドを持たない' do
+  describe 'Separation of concerns' do
+    it 'DailyReport does not have format methods' do
       expect(report).not_to respond_to(:to_text)
       expect(report).not_to respond_to(:to_markdown)
       expect(report).not_to respond_to(:format)

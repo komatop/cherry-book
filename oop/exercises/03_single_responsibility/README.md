@@ -15,20 +15,20 @@
 #### プレーンテキスト形式
 
 ```
-=== 日報: 2025-01-15 ===
-- ユーザー認証機能の実装
-- コードレビュー対応
-- チームミーティング参加
+=== Report: 2025-01-15 ===
+- Implement user authentication
+- Code review
+- Team meeting
 ```
 
 #### マークダウン形式
 
 ```
-# 日報: 2025-01-15
+# Report: 2025-01-15
 
-- ユーザー認証機能の実装
-- コードレビュー対応
-- チームミーティング参加
+- Implement user authentication
+- Code review
+- Team meeting
 ```
 
 ### 考えてほしいこと

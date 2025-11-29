@@ -1,6 +1,5 @@
 class BankAccount
   attr_reader :balance
-  attr_writer :deposit, :withdraw
 
   def initialize(balance = 0)
     @balance = balance

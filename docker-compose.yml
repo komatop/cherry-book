@@ -1,6 +1,43 @@
 services:
+  # OOP練習用（既存）
   ruby:
     build:
       context: .
     volumes:
       - ./oop:/app
+
+  # Rails アプリ用
+  web:
+    build:
+      context: ./rails_app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./rails_app:/app
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: root
+      DATABASE_PASSWORD: password
+      RAILS_ENV: development
+
+  # MySQL
+  db:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: rails_refactoring_development
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  mysql_data:

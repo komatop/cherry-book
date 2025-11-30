@@ -1,0 +1,60 @@
+# Ignore bundler config.
+/.bundle
+
+# Ignore all environment files.
+/.env*
+!/.env*.erb
+
+# Ignore all logfiles and tempfiles.
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
+
+# Ignore pidfiles, but keep the directory.
+/tmp/pids/*
+!/tmp/pids/
+!/tmp/pids/.keep
+
+# Ignore storage (uploaded files in development and any SQLite databases).
+/storage/*
+!/storage/.keep
+
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+# Bootsnap cache
+/tmp/cache/bootsnap
+
+# Node modules
+/node_modules
+
+# Ignore assets built for production.
+/public/assets
+
+# Ignore uploaded files in development.
+/storage/*
+!/storage/.keep
+
+# Ignore local database files
+*.sqlite3
+*.sqlite3-*
+
+# Ignore IDE/editor files
+.idea/
+*.swp
+*.swo
+*~
+.vscode/
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore byebug history
+.byebug_history
+
+# Ignore yarn files
+/yarn-error.log
+yarn-debug.log*
+.yarn-integrity
